@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<AssemblyName>WhiteList</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\WhiteList.Shared\WhiteList.Shared.csproj">
+			<Private>false</Private>
+			<CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+		</ProjectReference>
+	</ItemGroup>
+
+	<!-- Copy .assets into .build after build -->
+	<Target Name="CopyAssets" AfterTargets="Build">
+		<PropertyGroup>
+			<AssetsDir>$(WLRoot).assets\</AssetsDir>
+			<BuildDir>$(WLRoot).build\</BuildDir>
+		</PropertyGroup>
+		<ItemGroup>
+			<_AssetFiles Include="$(AssetsDir)**\*" />
+		</ItemGroup>
+		<Copy SourceFiles="@(_AssetFiles)" DestinationFiles="@(_AssetFiles -> '$(BuildDir)%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+	</Target>
+
+</Project>

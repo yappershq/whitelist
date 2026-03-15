@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="WhiteList.RequestManager/WhiteList.Request.Sql.csproj" />
+  <Project Path="WhiteList.Shared/WhiteList.Shared.csproj" />
+  <Project Path="WhiteList.VipChecker.MySql/WhiteList.VipChecker.MySql.csproj" />
+  <Project Path="WhiteList/WhiteList.csproj" />
+</Solution>

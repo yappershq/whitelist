@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<AssemblyName>WhiteList.VipChecker.MySql</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="MySqlConnector" Version="2.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\WhiteList.Shared\WhiteList.Shared.csproj" />
+	</ItemGroup>
+
+</Project>

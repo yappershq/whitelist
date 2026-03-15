@@ -1,0 +1,297 @@
+{
+  "whitelist.kick.broadcast": {
+    "en-us": "{{darkred}}{0} {{default}}({{grey}}{1}{{default}}) has been kicked. Not whitelisted.",
+    "ru-ru": "{{darkred}}{0} {{default}}({{grey}}{1}{{default}}) был кикнут. Не в вайтлисте.",
+    "zh-cn": "{{darkred}}{0} {{default}}({{grey}}{1}{{default}}) 已被踢出。不在白名单中。"
+  },
+
+  "whitelist.command.no_permission": {
+    "en-us": "{{red}}No permission. Requires: {{grey}}{0}",
+    "ru-ru": "{{red}}Нет прав. Требуется: {{grey}}{0}",
+    "zh-cn": "{{red}}没有权限。需要: {{grey}}{0}"
+  },
+
+  "whitelist.command.invalid_steamid": {
+    "en-us": "Invalid SteamID64: {{red}}{0}",
+    "ru-ru": "Неверный SteamID64: {{red}}{0}",
+    "zh-cn": "无效的 SteamID64: {{red}}{0}"
+  },
+  "whitelist.command.unknown_subcommand": {
+    "en-us": "Unknown subcommand '{{red}}{0}{{default}}'. Use '{{lime}}wl help{{default}}' for usage.",
+    "ru-ru": "Неизвестная подкоманда '{{red}}{0}{{default}}'. Используйте '{{lime}}wl help{{default}}'.",
+    "zh-cn": "未知子命令 '{{red}}{0}{{default}}'。使用 '{{lime}}wl help{{default}}' 查看帮助。"
+  },
+  "whitelist.command.unknown_group": {
+    "en-us": "Unknown group '{{red}}{0}{{default}}'. Valid groups: {{lime}}{1}",
+    "ru-ru": "Неизвестная группа '{{red}}{0}{{default}}'. Доступные группы: {{lime}}{1}",
+    "zh-cn": "未知组 '{{red}}{0}{{default}}'。有效组: {{lime}}{1}"
+  },
+
+  "whitelist.command.added": {
+    "en-us": "Added {{lime}}{0}{{default}} to group '{{green}}{1}{{default}}'.",
+    "ru-ru": "{{lime}}{0}{{default}} добавлен в группу '{{green}}{1}{{default}}'.",
+    "zh-cn": "已将 {{lime}}{0}{{default}} 添加到组 '{{green}}{1}{{default}}'。"
+  },
+  "whitelist.command.add_failed": {
+    "en-us": "{{red}}Failed to add {0} to the whitelist.",
+    "ru-ru": "{{red}}Не удалось добавить {0} в вайтлист.",
+    "zh-cn": "{{red}}无法将 {0} 添加到白名单。"
+  },
+  "whitelist.command.removed": {
+    "en-us": "Removed {{lime}}{0}{{default}} from the whitelist.",
+    "ru-ru": "{{lime}}{0}{{default}} удалён из вайтлиста.",
+    "zh-cn": "已将 {{lime}}{0}{{default}} 从白名单中移除。"
+  },
+  "whitelist.command.remove_failed": {
+    "en-us": "{{red}}Failed to remove {0} from the whitelist.",
+    "ru-ru": "{{red}}Не удалось удалить {0} из вайтлиста.",
+    "zh-cn": "{{red}}无法将 {0} 从白名单中移除。"
+  },
+
+  "whitelist.command.tempadded": {
+    "en-us": "Temp-added {{lime}}{0}{{default}}. Cleared on map change or '{{yellow}}wl tempclear{{default}}'.",
+    "ru-ru": "Временно добавлен {{lime}}{0}{{default}}. Очистится при смене карты или '{{yellow}}wl tempclear{{default}}'.",
+    "zh-cn": "已临时添加 {{lime}}{0}{{default}}。换图或 '{{yellow}}wl tempclear{{default}}' 时清除。"
+  },
+  "whitelist.command.tempremoved": {
+    "en-us": "Temp-removed {{lime}}{0}{{default}}. Kicked if online and not otherwise whitelisted.",
+    "ru-ru": "Временно удалён {{lime}}{0}{{default}}. Кикнут, если онлайн и не в основном вайтлисте.",
+    "zh-cn": "已临时移除 {{lime}}{0}{{default}}。如在线且无其他白名单则被踢出。"
+  },
+  "whitelist.command.tempremove_not_found": {
+    "en-us": "{{yellow}}{0}{{default}} was not in the temp whitelist.",
+    "ru-ru": "{{yellow}}{0}{{default}} не был во временном вайтлисте.",
+    "zh-cn": "{{yellow}}{0}{{default}} 不在临时白名单中。"
+  },
+  "whitelist.command.tempclear": {
+    "en-us": "Temp whitelist cleared. {{lime}}{0}{{default}} entries removed.",
+    "ru-ru": "Временный вайтлист очищен. {{lime}}{0}{{default}} записей удалено.",
+    "zh-cn": "临时白名单已清空。已移除 {{lime}}{0}{{default}} 条记录。"
+  },
+
+  "whitelist.command.allow": {
+    "en-us": "Whitelist {{green}}ON{{default}} — {0}",
+    "ru-ru": "Вайтлист {{green}}ВКЛ{{default}} — {0}",
+    "zh-cn": "白名单 {{green}}已开启{{default}} — {0}"
+  },
+  "whitelist.command.allow_all": {
+    "en-us": "Whitelist {{green}}ON{{default}} — allowing all groups: {{lime}}{0}",
+    "ru-ru": "Вайтлист {{green}}ВКЛ{{default}} — все группы разрешены: {{lime}}{0}",
+    "zh-cn": "白名单 {{green}}已开启{{default}} — 允许所有组: {{lime}}{0}"
+  },
+  "whitelist.command.off": {
+    "en-us": "Whitelist {{red}}OFF{{default}} — all players can join.",
+    "ru-ru": "Вайтлист {{red}}ВЫКЛ{{default}} — все игроки могут зайти.",
+    "zh-cn": "白名单 {{red}}已关闭{{default}} — 所有玩家可以加入。"
+  },
+  "whitelist.command.refresh": {
+    "en-us": "Cache refresh triggered. Temp whitelist preserved.",
+    "ru-ru": "Кэш обновлён. Временный вайтлист сохранён.",
+    "zh-cn": "缓存已刷新。临时白名单已保留。"
+  },
+
+  "whitelist.status.header": {
+    "en-us": "{{yellow}}--- WhiteList Status ---",
+    "ru-ru": "{{yellow}}--- Статус вайтлиста ---",
+    "zh-cn": "{{yellow}}--- 白名单状态 ---"
+  },
+  "whitelist.status.off": {
+    "en-us": "Whitelist: {{red}}OFF{{default}} (all players can join)",
+    "ru-ru": "Вайтлист: {{red}}ВЫКЛ{{default}} (все могут зайти)",
+    "zh-cn": "白名单: {{red}}已关闭{{default}} (所有玩家可以加入)"
+  },
+  "whitelist.status.on": {
+    "en-us": "Whitelist: {{green}}ON{{default}} — allowing '{{lime}}{0}{{default}}' and above",
+    "ru-ru": "Вайтлист: {{green}}ВКЛ{{default}} — разрешены '{{lime}}{0}{{default}}' и выше",
+    "zh-cn": "白名单: {{green}}已开启{{default}} — 允许 '{{lime}}{0}{{default}}' 及以上"
+  },
+  "whitelist.status.allowed_groups": {
+    "en-us": "Allowed groups: {{lime}}{0}",
+    "ru-ru": "Разрешённые группы: {{lime}}{0}",
+    "zh-cn": "允许的组: {{lime}}{0}"
+  },
+  "whitelist.status.groups": {
+    "en-us": "Groups: {0}",
+    "ru-ru": "Группы: {0}",
+    "zh-cn": "组: {0}"
+  },
+  "whitelist.status.players": {
+    "en-us": "Whitelisted players: {0}",
+    "ru-ru": "Игроков в вайтлисте: {0}",
+    "zh-cn": "白名单玩家: {0}"
+  },
+  "whitelist.status.temp": {
+    "en-us": "Temp whitelisted: {{yellow}}{0}",
+    "ru-ru": "Временный вайтлист: {{yellow}}{0}",
+    "zh-cn": "临时白名单: {{yellow}}{0}"
+  },
+  "whitelist.status.providers": {
+    "en-us": "External providers: {0}",
+    "ru-ru": "Внешних провайдеров: {0}",
+    "zh-cn": "外部提供者: {0}"
+  },
+
+  "whitelist.check.header": {
+    "en-us": "{{yellow}}--- Player Check: {0} ---",
+    "ru-ru": "{{yellow}}--- Проверка игрока: {0} ---",
+    "zh-cn": "{{yellow}}--- 玩家检查: {0} ---"
+  },
+  "whitelist.check.best_group": {
+    "en-us": "Best group: {{lime}}{0}{{default}} (priority {1})",
+    "ru-ru": "Лучшая группа: {{lime}}{0}{{default}} (приоритет {1})",
+    "zh-cn": "最佳组: {{lime}}{0}{{default}} (优先级 {1})"
+  },
+  "whitelist.check.best_group_none": {
+    "en-us": "Best group: {{grey}}none",
+    "ru-ru": "Лучшая группа: {{grey}}нет",
+    "zh-cn": "最佳组: {{grey}}无"
+  },
+  "whitelist.check.db_group": {
+    "en-us": "DB group: {{green}}{0}{{default}} (priority {1})",
+    "ru-ru": "Группа в БД: {{green}}{0}{{default}} (приоритет {1})",
+    "zh-cn": "数据库组: {{green}}{0}{{default}} (优先级 {1})"
+  },
+  "whitelist.check.temp_yes": {
+    "en-us": "Temp whitelisted: {{green}}yes",
+    "ru-ru": "Временный вайтлист: {{green}}да",
+    "zh-cn": "临时白名单: {{green}}是"
+  },
+  "whitelist.check.temp_no": {
+    "en-us": "Temp whitelisted: {{grey}}no",
+    "ru-ru": "Временный вайтлист: {{grey}}нет",
+    "zh-cn": "临时白名单: {{grey}}否"
+  },
+  "whitelist.check.level": {
+    "en-us": "Current level: {0}",
+    "ru-ru": "Текущий уровень: {0}",
+    "zh-cn": "当前等级: {0}"
+  },
+  "whitelist.check.allowed_yes": {
+    "en-us": "Would be allowed: {{green}}YES",
+    "ru-ru": "Был бы допущен: {{green}}ДА",
+    "zh-cn": "是否允许: {{green}}是"
+  },
+  "whitelist.check.allowed_no": {
+    "en-us": "Would be allowed: {{red}}NO",
+    "ru-ru": "Был бы допущен: {{red}}НЕТ",
+    "zh-cn": "是否允许: {{red}}否"
+  },
+
+  "whitelist.help.header": {
+    "en-us": "{{yellow}}--- WhiteList Commands ---",
+    "ru-ru": "{{yellow}}--- Команды вайтлиста ---",
+    "zh-cn": "{{yellow}}--- 白名单命令 ---"
+  },
+  "whitelist.help.status": {
+    "en-us": "{{lime}}wl{{default}}              — show status",
+    "ru-ru": "{{lime}}wl{{default}}              — показать статус",
+    "zh-cn": "{{lime}}wl{{default}}              — 显示状态"
+  },
+  "whitelist.help.add": {
+    "en-us": "{{lime}}wl add{{default}} <steam> [group] — add to whitelist",
+    "ru-ru": "{{lime}}wl add{{default}} <steam> [группа] — добавить в вайтлист",
+    "zh-cn": "{{lime}}wl add{{default}} <steam> [组] — 添加到白名单"
+  },
+  "whitelist.help.remove": {
+    "en-us": "{{lime}}wl remove{{default}} <steam>      — remove from whitelist",
+    "ru-ru": "{{lime}}wl remove{{default}} <steam>      — удалить из вайтлиста",
+    "zh-cn": "{{lime}}wl remove{{default}} <steam>      — 从白名单移除"
+  },
+  "whitelist.help.tempadd": {
+    "en-us": "{{lime}}wl tempadd{{default}} <steam>     — temp whitelist",
+    "ru-ru": "{{lime}}wl tempadd{{default}} <steam>     — временно добавить",
+    "zh-cn": "{{lime}}wl tempadd{{default}} <steam>     — 临时白名单"
+  },
+  "whitelist.help.tempremove": {
+    "en-us": "{{lime}}wl tempremove{{default}} <steam>  — remove temp + kick",
+    "ru-ru": "{{lime}}wl tempremove{{default}} <steam>  — удалить временного + кик",
+    "zh-cn": "{{lime}}wl tempremove{{default}} <steam>  — 移除临时 + 踢出"
+  },
+  "whitelist.help.tempclear": {
+    "en-us": "{{lime}}wl tempclear{{default}}           — clear all temp entries",
+    "ru-ru": "{{lime}}wl tempclear{{default}}           — очистить всех временных",
+    "zh-cn": "{{lime}}wl tempclear{{default}}           — 清空所有临时条目"
+  },
+  "whitelist.help.allow": {
+    "en-us": "{{lime}}wl allow{{default}} <group>       — enable for group and above",
+    "ru-ru": "{{lime}}wl allow{{default}} <группа>      — включить для группы и выше",
+    "zh-cn": "{{lime}}wl allow{{default}} <组>          — 为该组及以上启用"
+  },
+  "whitelist.help.allow_all": {
+    "en-us": "{{lime}}wl allow all{{default}}           — enable for all groups",
+    "ru-ru": "{{lime}}wl allow all{{default}}           — включить для всех групп",
+    "zh-cn": "{{lime}}wl allow all{{default}}           — 为所有组启用"
+  },
+  "whitelist.help.off": {
+    "en-us": "{{lime}}wl off{{default}}                 — disable whitelist",
+    "ru-ru": "{{lime}}wl off{{default}}                 — выключить вайтлист",
+    "zh-cn": "{{lime}}wl off{{default}}                 — 关闭白名单"
+  },
+  "whitelist.help.check": {
+    "en-us": "{{lime}}wl check{{default}} <steam>       — check player status",
+    "ru-ru": "{{lime}}wl check{{default}} <steam>       — проверить игрока",
+    "zh-cn": "{{lime}}wl check{{default}} <steam>       — 检查玩家状态"
+  },
+  "whitelist.help.refresh": {
+    "en-us": "{{lime}}wl refresh{{default}}             — force cache reload",
+    "ru-ru": "{{lime}}wl refresh{{default}}             — принудительно обновить кэш",
+    "zh-cn": "{{lime}}wl refresh{{default}}             — 强制刷新缓存"
+  },
+  "whitelist.help.recent": {
+    "en-us": "{{lime}}wl recent{{default}}              — whitelist recently rejected players",
+    "ru-ru": "{{lime}}wl recent{{default}}              — добавить недавно отклонённых игроков",
+    "zh-cn": "{{lime}}wl recent{{default}}              — 将最近被拒绝的玩家加入白名单"
+  },
+
+  "whitelist.recent.no_menu": {
+    "en-us": "{{red}}MenuManager is not installed. Cannot open menu.",
+    "ru-ru": "{{red}}MenuManager не установлен. Невозможно открыть меню.",
+    "zh-cn": "{{red}}MenuManager 未安装。无法打开菜单。"
+  },
+  "whitelist.recent.empty": {
+    "en-us": "{{yellow}}No recently rejected players.",
+    "ru-ru": "{{yellow}}Нет недавно отклонённых игроков.",
+    "zh-cn": "{{yellow}}没有最近被拒绝的玩家。"
+  },
+  "whitelist.recent.title": {
+    "en-us": "Recently Rejected Players",
+    "ru-ru": "Недавно отклонённые игроки",
+    "zh-cn": "最近被拒绝的玩家"
+  },
+  "whitelist.recent.pick_group": {
+    "en-us": "Add {0} — pick group",
+    "ru-ru": "Добавить {0} — выберите группу",
+    "zh-cn": "添加 {0} — 选择组"
+  },
+
+  "whitelist.help.removeonline": {
+    "en-us": "{{lime}}wl removeonline{{default}}          — remove online player + kick",
+    "ru-ru": "{{lime}}wl removeonline{{default}}          — удалить онлайн игрока + кик",
+    "zh-cn": "{{lime}}wl removeonline{{default}}          — 移除在线玩家 + 踢出"
+  },
+  "whitelist.removeonline.empty": {
+    "en-us": "{{yellow}}No other players online.",
+    "ru-ru": "{{yellow}}Нет других игроков онлайн.",
+    "zh-cn": "{{yellow}}没有其他在线玩家。"
+  },
+  "whitelist.removeonline.title": {
+    "en-us": "Remove Online Player",
+    "ru-ru": "Удалить онлайн игрока",
+    "zh-cn": "移除在线玩家"
+  },
+  "whitelist.removeonline.pick_type": {
+    "en-us": "Remove {0} — pick type",
+    "ru-ru": "Удалить {0} — выберите тип",
+    "zh-cn": "移除 {0} — 选择类型"
+  },
+  "whitelist.removeonline.permanent": {
+    "en-us": "Permanent (remove from DB + kick)",
+    "ru-ru": "Постоянно (удалить из БД + кик)",
+    "zh-cn": "永久 (从数据库移除 + 踢出)"
+  },
+  "whitelist.removeonline.temporary": {
+    "en-us": "Temporary (temp-remove + kick)",
+    "ru-ru": "Временно (временное удаление + кик)",
+    "zh-cn": "临时 (临时移除 + 踢出)"
+  }
+}

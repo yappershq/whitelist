@@ -1,0 +1,53 @@
+{
+    // Server identifier for multi-server whitelist
+    // "0" = global (entries visible to all servers)
+    // Set a unique value per server (e.g. "server1", "eu-1") for server-specific whitelists
+    // Global entries (ServerId "0") are always included regardless of this value
+    "ServerId": "0",
+
+    // Group priorities (lower number = higher priority)
+    // 'wl allow <group>' enables whitelist for that group and all higher priority groups
+    //   e.g. 'wl allow vip' allows streamer + content + vip
+    "Groups": {
+        "streamer": 1,
+        "content": 2,
+        "vip": 3,
+        "whitelist": 4
+    },
+
+    // Commands — Permission and Aliases
+    // Top-level Permission is checked by AdminManager framework (OR logic)
+    // Subcommand permissions are checked per-subcommand (via admin.HasPermission)
+    // Wildcard 'whitelist:*' grants all subcommand permissions
+    "Commands": {
+        "wl": {
+            "Permission": "whitelist:help",
+            "Aliases": [ "whitelist" ],
+            "Subcommands": {
+                "help":       { "Permission": "whitelist:help" },
+                "add":        { "Permission": "whitelist:add" },
+                "remove":     { "Permission": "whitelist:remove" },
+                "tempadd":    { "Permission": "whitelist:temp:add" },
+                "tempremove": { "Permission": "whitelist:temp:remove" },
+                "tempclear":  { "Permission": "whitelist:temp:clear" },
+                "allow":      { "Permission": "whitelist:level" },
+                "off":        { "Permission": "whitelist:level" },
+                "check":      { "Permission": "whitelist:check" },
+                "refresh":    { "Permission": "whitelist:refresh" },
+                "recent":       { "Permission": "whitelist:recent" },
+                "removeonline": { "Permission": "whitelist:removeonline" }
+            }
+        }
+    },
+
+    // Whitelist database configuration
+    // Supported types: MySql, PostgreSQL, Sqlite
+    "Database": {
+        "Type": "MySql",
+        "Host": "localhost",
+        "Port": 3306,
+        "Database": "whitelist",
+        "User": "root",
+        "Password": ""
+    }
+}

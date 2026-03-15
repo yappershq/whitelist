@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm:*)",
+      "Bash(powershell.exe -NoProfile -Command \"[System.IO.Compression.ZipFile]::OpenRead\\('D:\\\\yappers\\\\modsharp\\\\whitelist\\\\WhiteList.zip'\\).Entries | Select-Object -First 20 FullName\" 2>&1)"
+    ]
+  }
+}

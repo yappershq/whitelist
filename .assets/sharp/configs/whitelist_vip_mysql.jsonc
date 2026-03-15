@@ -1,0 +1,18 @@
+{
+    // Server identifier for VIP filtering (0 = match all servers)
+    "ServerId": "0",
+
+    // Group name assigned to VIP players
+    // Must match a key in the whitelist Groups config
+    "Group": "vip",
+
+    // MySQL connection to the VIP database
+    // Queries ms_vips table for active VIP status
+    "Database": {
+        "Host": "",
+        "Port": 3306,
+        "Database": "vips",
+        "User": "root",
+        "Password": ""
+    }
+}
