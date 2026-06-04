@@ -107,7 +107,15 @@ internal class PlayerManager : IManager, IClientListener, IPlayerManager
 
         if (IsPlayerAllowed(client.SteamId, level))
             return false;
-        RecordRejection(client.Name, client.SteamId);
+
+        // NOTE: returning true here only BLOCKS THE ADMIN CHECK (ModSharp IClientListener:
+        // "True = Block Check") — it does NOT reject the connection. Non-allowed players must be
+        // actively kicked. Defer to the next frame so we don't kick mid listener-dispatch.
+        _bridge.ModSharp.InvokeFrameAction(() =>
+        {
+            if (client.IsValid)
+                KickPlayer(client);
+        });
 
         return true;
     }
