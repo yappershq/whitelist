@@ -9,10 +9,10 @@
     // MySQL connection to the VIP database
     // Queries ms_vips table for active VIP status
     "Database": {
-        "Host": "",
+        "Host": "10.1.1.180",
         "Port": 3306,
         "Database": "vips",
-        "User": "root",
-        "Password": ""
+        "User": "vips",
+        "Password": "tbevPKG0v8C*je_@"
     }
 }

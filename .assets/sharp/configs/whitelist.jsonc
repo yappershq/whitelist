@@ -44,10 +44,10 @@
     // Supported types: MySql, PostgreSQL, Sqlite
     "Database": {
         "Type": "MySql",
-        "Host": "localhost",
+        "Host": "10.1.1.180",
         "Port": 3306,
         "Database": "whitelist",
-        "User": "root",
-        "Password": ""
+        "User": "whitelist",
+        "Password": "hrWpOL!VHXtjpeJw"
     }
 }
