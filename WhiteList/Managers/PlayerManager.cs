@@ -2,8 +2,10 @@ using System.Collections.Concurrent;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Sharp.Shared.Enums;
+using Sharp.Shared.HookParams;
 using Sharp.Shared.Listeners;
 using Sharp.Shared.Objects;
+using Sharp.Shared.Types;
 
 namespace WhiteList.Managers;
 
@@ -63,6 +65,8 @@ internal class PlayerManager : IManager, IClientListener, IPlayerManager
     private readonly LinkedList<RejectedPlayer> _recentRejections = new();
     private const int MaxRecentRejections = 20;
 
+    private Func<IConnectClientHookParams, HookReturnValue<NetworkDisconnectionReason>, HookReturnValue<NetworkDisconnectionReason>>? _connectHook;
+
     public PlayerManager(InterfaceBridge        bridge,
                          IConfigManager         configManager,
                          GroupProviderRegistry   groupRegistry,
@@ -81,6 +85,11 @@ internal class PlayerManager : IManager, IClientListener, IPlayerManager
     {
         _bridge.ClientManager.InstallClientListener(this);
 
+        // Reject non-whitelisted players at the connection hook (before they enter the server).
+        // OnClientPreAdminCheck only blocks the admin check, it can't reject a connection.
+        _connectHook = OnConnectClientPre;
+        _bridge.HookManager.ConnectClient.InstallHookPre(_connectHook);
+
         _logger.LogInformation("Loaded {Count} group priorities: {Groups}",
             _groupPriorities.Count,
             string.Join(", ", _groupPriorities.OrderBy(kv => kv.Value).Select(kv => $"{kv.Key}={kv.Value}")));
@@ -91,34 +100,42 @@ internal class PlayerManager : IManager, IClientListener, IPlayerManager
     public void Shutdown()
     {
         _bridge.ClientManager.RemoveClientListener(this);
+
+        if (_connectHook is not null)
+            _bridge.HookManager.ConnectClient.RemoveHookPre(_connectHook);
+    }
+
+    // Pre-connection gate — runs before the client enters the server. Returning a
+    // SkipCallReturnOverride with a disconnect reason rejects the connection outright
+    // (same pattern as AdminCommands' ban handler), so non-whitelisted players never join.
+    private HookReturnValue<NetworkDisconnectionReason> OnConnectClientPre(
+        IConnectClientHookParams @params,
+        HookReturnValue<NetworkDisconnectionReason> ret)
+    {
+        var level = _configManager.WhiteListLevel;
+        if (level == 0)
+            return new HookReturnValue<NetworkDisconnectionReason>(); // whitelist off — allow
+
+        ulong steamId = @params.SteamId;
+        if (IsPlayerAllowed(steamId, level))
+            return new HookReturnValue<NetworkDisconnectionReason>(); // allowed
+
+        RecordRejection(@params.Name, steamId);
+
+        if (_configManager.BroadcastKick)
+            Extensions.ChatExtensions.PrintLocaleAll("whitelist.kick.broadcast", @params.Name, steamId);
+
+        _logger.LogInformation("Rejecting {Name} ({SteamId}) at connect — not allowed at level {Level}",
+            @params.Name, steamId, level);
+
+        return new HookReturnValue<NetworkDisconnectionReason>(
+            EHookAction.SkipCallReturnOverride, NetworkDisconnectionReason.Kicked);
     }
 
     // --- Client listener ---
 
-    public bool OnClientPreAdminCheck(IGameClient client)
-    {
-        if (client.IsFakeClient || client.IsHltv)
-            return false;
-
-        var level = _configManager.WhiteListLevel;
-
-        if (level == 0)
-            return false;
-
-        if (IsPlayerAllowed(client.SteamId, level))
-            return false;
-
-        // NOTE: returning true here only BLOCKS THE ADMIN CHECK (ModSharp IClientListener:
-        // "True = Block Check") — it does NOT reject the connection. Non-allowed players must be
-        // actively kicked. Defer to the next frame so we don't kick mid listener-dispatch.
-        _bridge.ModSharp.InvokeFrameAction(() =>
-        {
-            if (client.IsValid)
-                KickPlayer(client);
-        });
-
-        return true;
-    }
+    // Whitelist enforcement happens at OnConnectClientPre (connection gate), not here —
+    // OnClientPreAdminCheck's return value only blocks the admin permission check.
 
     public void OnClientPutInServer(IGameClient client) { }
 

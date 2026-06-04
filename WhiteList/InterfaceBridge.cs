@@ -61,6 +61,7 @@ internal class InterfaceBridge
         ModSharp           = sharedSystem.GetModSharp();
         ConVarManager      = sharedSystem.GetConVarManager();
         ClientManager      = sharedSystem.GetClientManager();
+        HookManager        = sharedSystem.GetHookManager();
         SharpModuleManager = sharedSystem.GetSharpModuleManager();
 
         ModuleIdentity = string.IsNullOrEmpty(dllPath)
@@ -85,6 +86,7 @@ internal class InterfaceBridge
     public IModSharp      ModSharp      { get; }
     public IConVarManager ConVarManager { get; }
     public IClientManager ClientManager { get; }
+    public IHookManager   HookManager   { get; }
 
     public ISharpModuleManager SharpModuleManager { get; }
 
