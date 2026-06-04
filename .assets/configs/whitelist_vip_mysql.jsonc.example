@@ -13,6 +13,6 @@
         "Port": 3306,
         "Database": "vips",
         "User": "vips",
-        "Password": "tbevPKG0v8C*je_@"
+        "Password": "YOUR_PASSWORD_HERE"
     }
 }

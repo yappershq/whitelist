@@ -44,9 +44,9 @@
     <IsModuleProject Condition="'$(IsSharedProject)' != 'true'">true</IsModuleProject>
   </PropertyGroup>
 
-  <!-- Output to .build/sharp/shared/ for Shared projects -->
+  <!-- Output to .build/shared/ for Shared projects (standard modsharp-deploy layout) -->
   <PropertyGroup Condition="'$(IsSharedProject)' == 'true'">
-    <OutputPath>$(WLRoot).build\sharp\shared\$(MSBuildProjectName)\</OutputPath>
+    <OutputPath>$(WLRoot).build\shared\$(MSBuildProjectName)\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
     <DebugSymbols>false</DebugSymbols>
@@ -58,9 +58,9 @@
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
 
-  <!-- Output to .build/sharp/modules/ for Module projects -->
+  <!-- Output to .build/modules/ for Module projects (standard modsharp-deploy layout) -->
   <PropertyGroup Condition="'$(IsModuleProject)' == 'true'">
-    <OutputPath>$(WLRoot).build\sharp\modules\$(MSBuildProjectName)\</OutputPath>
+    <OutputPath>$(WLRoot).build\modules\$(MSBuildProjectName)\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 

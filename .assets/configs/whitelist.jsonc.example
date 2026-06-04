@@ -48,6 +48,6 @@
         "Port": 3306,
         "Database": "whitelist",
         "User": "whitelist",
-        "Password": "hrWpOL!VHXtjpeJw"
+        "Password": "YOUR_PASSWORD_HERE"
     }
 }
