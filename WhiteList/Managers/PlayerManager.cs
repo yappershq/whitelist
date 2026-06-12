@@ -412,7 +412,14 @@ internal class PlayerManager : IManager, IClientListener, IPlayerManager
         _logger.LogInformation("Rejecting player {Name} ({SteamId}) - not allowed at level {Level}",
             name, steamId, _configManager.WhiteListLevel);
 
-        _bridge.ClientManager.KickClient(client, _configManager.KickMessage);
+        // Defer the kick to the end of the current frame instead of disconnecting
+        // mid-callback: tearing the client down while a snapshot for it is in flight
+        // races the engine's send path (SIGSEGV at libengine2 SendSnapshot, null netchan).
+        _bridge.ModSharp.InvokeFrameAction(() =>
+        {
+            if (client.IsValid)
+                _bridge.ClientManager.KickClient(client, _configManager.KickMessage);
+        });
     }
 
     private void RecordRejection(string name, ulong steamId)
